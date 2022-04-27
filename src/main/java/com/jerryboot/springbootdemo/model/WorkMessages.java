@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table
+@Table(name="work_messages")
 public class WorkMessages {
 
 	public WorkMessages() {
@@ -33,4 +33,37 @@ public class WorkMessages {
 	@Temporal(TemporalType.TIMESTAMP) // 存進去的資料型別
 	@Column(name = "added", columnDefinition = "datetime")
 	private Date added;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Date getAdded() {
+		return added;
+	}
+
+	public void setAdded(Date added) {
+		this.added = added;
+	}
+
+	public WorkMessages(Integer id, String text, Date added) {
+		super();
+		this.id = id;
+		this.text = text;
+		this.added = added;
+	}
+	
+	
 }
